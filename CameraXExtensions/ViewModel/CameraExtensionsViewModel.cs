@@ -82,17 +82,6 @@ namespace CameraXExtensions
         public IFlow CameraUiState;
         public IFlow CaptureUiState;
 
-        public class CameraProvider : Object, ICameraProvider
-        {
-            ProcessCameraProvider processCameraProvider;
-            public CameraProvider(ProcessCameraProvider processCameraProvider) =>
-                this.processCameraProvider = processCameraProvider;
-
-            public IList<ICameraInfo> AvailableCameraInfos => processCameraProvider.AvailableCameraInfos;
-
-            public bool HasCamera(CameraSelector p0) => processCameraProvider.HasCamera(p0);
-        }
-
         //
         // Initializes the camera and checks which extensions are available for the selected camera lens
         // face. If no extensions are available then the selected extension will be set to None and the
@@ -115,7 +104,7 @@ namespace CameraXExtensions
                 {
                     cameraProvider = cameraProviderFuture.Get() as ProcessCameraProvider;
                     var extensionsManagerFuture = ExtensionsManager.GetInstanceAsync(application,
-                        new CameraProvider(cameraProvider));
+                        cameraProvider);
                     extensionsManagerFuture.AddListener(new Runnable(() =>
                     {
                         extensionsManager = extensionsManagerFuture.Get() as ExtensionsManager;

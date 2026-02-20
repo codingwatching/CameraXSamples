@@ -16,13 +16,13 @@ using AndroidX.Lifecycle;
 using Java.Lang;
 using Java.Nio;
 using Java.Util.Concurrent;
+using TensorFlow.Lite.Support.Common;
+using TensorFlow.Lite.Support.Common.Ops;
+using TensorFlow.Lite.Support.Image;
+using TensorFlow.Lite.Support.Image.Ops;
+using TensorFlow.Lite.Support.Metadata;
 using Xamarin.TensorFlow.Lite;
 using Xamarin.TensorFlow.Lite.Nnapi;
-using Xamarin.TensorFlow.Lite.Support.Common;
-using Xamarin.TensorFlow.Lite.Support.Common.Ops;
-using Xamarin.TensorFlow.Lite.Support.Image;
-using Xamarin.TensorFlow.Lite.Support.Image.Ops;
-using Xamarin.TensorFlow.Lite.Support.Metadata;
 using Math = System.Math;
 
 namespace CameraXTfLite
