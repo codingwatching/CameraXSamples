@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net9.0-android</TargetFramework>
+    <TargetFramework>net10.0-android</TargetFramework>
     <SupportedOSPlatformVersion>23</SupportedOSPlatformVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -9,6 +9,9 @@
     <None Remove="hdr_merge\**\*" />
     <AndroidJavaSource Remove="hdr_merge\**\*" />
     <AndroidLibrary Remove="hdr_merge\**\*" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidLibrary Include="Jars\hdr_merge-$(Configuration).aar" />
   </ItemGroup>
   <Target Name="HdrClean" BeforeTargets="CoreClean">
     <Exec Command="hdr_merge\gradlew -p hdr_merge clean" />
